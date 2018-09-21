@@ -6,7 +6,7 @@ use anytizer\relay;
 
 class AddItemTest extends TestCase
 {
-	public function testAddItem()
+	public function _testAddItem()
 	{
 		$_GET = array();
 		$_POST = array(
@@ -15,7 +15,7 @@ class AddItemTest extends TestCase
 
 		$relay = new relay();
 		$relay->headers(array(
-			"X-Protection-Token" => "0000-00-00",
+			"X-Protection-Token" => "00000000-0000-0000-0000-000000000000",
 		));
 		
 		$data = $relay->fetch(__API_URL__."/api-add.php");

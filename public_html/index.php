@@ -22,7 +22,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="d in data track by $index">
+				<tr ng-repeat="d in data track by d.id">
 					<td>{{d.item}}</td>
 					<td><span class="w3-btn w3-red" ng-click="didi.delete(d)">X</span></td>
 				</tr>

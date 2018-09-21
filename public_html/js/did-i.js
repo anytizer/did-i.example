@@ -1,11 +1,12 @@
 var APIURL = "./api";
 
+document.addEventListener("contextmenu", event => event.preventDefault());
+
 var app = angular.module("didIApplication", ["ui.router"]);
 
 app.service("didiService", ["$http", function($http){
 	var $fetch = function(urlpart, jsonData)
-	{
-		
+	{		
 		return $http({
 			method: "POST",
 			url: APIURL+"/"+urlpart,
@@ -15,6 +16,7 @@ app.service("didiService", ["$http", function($http){
 			}
 		});
 	};
+
 	return {
 		"listItem": function (data) {
 			return $fetch("api-list.php", data);
@@ -37,9 +39,7 @@ app.controller("addDidIController", ["$rootScope", "$scope", "didiService", func
 		.then(function(response) {
 			$rootScope.$broadcast("dataAddedEvent");
 			$scope.data.name = "";
-			console.log(response.data);
 		}, function(response) {
-			console.log(response.data);
 		});
 		
 		return false;
@@ -57,23 +57,17 @@ app.controller("didIController", ["$rootScope", "$scope", "didiService", functio
 			didiService.listItem({})
 			.then(function(response) {
 				$scope.data = response.data;
-				console.log(response.data);
 			}, function(response) {
-				console.log(response.data);
 			});
 		},
 		"refresh": function(){
 			$scope.didi.list();
 		},
 		"delete": function(item){
-			//alert("Deleting...");
 			didiService.deleteItem(item)
 			.then(function(response) {
-				//$scope.data = response.data;
-				//console.log(response.data);
 				$scope.didi.refresh();
 			}, function(response) {
-				//console.log(response.data);
 			});
 		},
 	};
