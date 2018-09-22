@@ -1,4 +1,10 @@
-﻿table
+﻿.wrapper
+{
+	width: 360px;
+	margin: 0 auto 0 auto;
+}
+
+table
 {
 	width: 100%;
 	border-collapse: collapse;

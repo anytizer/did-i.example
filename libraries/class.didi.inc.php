@@ -30,6 +30,14 @@ class didi
 		return true;
 	}
 	
+	public function cleanItems()
+	{
+		$statement = $this->db->prepare("UPDATE items SET is_deleted='Y';");
+		$statement->execute();
+		
+		return true;
+	}
+	
 	public function getItemsList()
 	{
 		$query = $this->db->query("SELECT * FROM items WHERE is_deleted='N' ORDER BY `item` COLLATE NOCASE ASC;");

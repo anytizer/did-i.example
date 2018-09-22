@@ -1,8 +1,5 @@
 <?php
-print_r($_POST);
-
 require_once("inc.config.php");
-print_r($_POST);
 
 $success = false;
 if($_POST["id"])

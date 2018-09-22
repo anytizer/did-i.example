@@ -1,3 +1,4 @@
 cases\AddListedItems
+ [x] Cleanup items
  [x] Add listed items
 
